@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>From My Heart 💖</title>
+  <title>From My Heart ❤️</title>
 
   <style>
     body {
@@ -11,24 +11,27 @@
       font-family: 'Segoe UI', Arial, sans-serif;
       background: linear-gradient(135deg, #ff9a9e, #fad0c4);
       color: white;
-    }
-
-    .container {
-      min-height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 40px 20px;
-      text-align: center;
+      min-height: 100vh;
+      padding: 20px;
     }
 
     .card {
       max-width: 900px;
-      background: rgba(255, 255, 255, 0.15);
-      backdrop-filter: blur(8px);
+      background: rgba(255, 255, 255, 0.18);
+      backdrop-filter: blur(10px);
       border-radius: 25px;
       padding: 50px 40px;
       box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+      text-align: center;
+      animation: fadeIn 1.5s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     h1 {
@@ -39,58 +42,77 @@
     p {
       font-size: 1.25rem;
       line-height: 1.9;
-      margin-bottom: 30px;
+      margin-bottom: 25px;
     }
 
     .heart {
-      font-size: 2.5rem;
+      font-size: 3rem;
       animation: beat 1.2s infinite;
+      margin-bottom: 30px;
     }
 
     @keyframes beat {
       0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.2); }
+      50% { transform: scale(1.25); }
     }
 
     .signature {
-      margin-top: 35px;
+      margin-bottom: 40px;
       font-size: 1.1rem;
       opacity: 0.9;
+    }
+
+    .restart-btn {
+      padding: 14px 36px;
+      background: white;
+      color: #ff5e78;
+      text-decoration: none;
+      border-radius: 30px;
+      font-weight: bold;
+      font-size: 1.1rem;
+      display: inline-block;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .restart-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.25);
     }
   </style>
 </head>
 
 <body>
-  <div class="container">
-    <div class="card">
-      <h1>💖 From My Heart 💖</h1>
+  <div class="card">
+    <h1>💖 From My Heart 💖</h1>
 
-      <p>
-        I really hope you liked this little surprise.  
-        I know it may not be a grand gesture, but it comes straight from my heart.
-      </p>
+    <p>
+      I really hope you liked this little surprise.  
+      I know it’s not a grand gesture, but it comes straight from my heart.
+    </p>
 
-      <p>
-        We truly enjoyed celebrating your birthday along with the kids,  
-        and those moments mean more to me than words can say.
-      </p>
+    <p>
+      We truly enjoyed celebrating your birthday along with the kids,  
+      and those moments mean more to me than words can say.
+    </p>
 
-      <p>
-        May God bless you with everything you truly deserve.  
-        Enjoy your special day to the fullest.
-      </p>
+    <p>
+      May God bless you with everything you truly deserve.  
+      Enjoy your special day to the fullest.
+    </p>
 
-      <p>
-        So once again — the happiest birthday to you, beautiful.  
-        I am incredibly lucky to have you in my life.
-      </p>
+    <p>
+      So once again — the happiest birthday to you, beautiful.  
+      I am incredibly lucky to have you in my life.
+    </p>
 
-      <div class="heart">❤️</div>
+    <div class="heart">❤️</div>
 
-      <div class="signature">
-        Forever grateful for you 💕
-      </div>
+    <div class="signature">
+      Forever grateful for you 💕
     </div>
+
+    <!-- Restart Button -->
+    <a href="index.html" class="restart-btn">🔄 Restart</a>
   </div>
 </body>
 </html>
