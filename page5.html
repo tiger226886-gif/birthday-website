@@ -3,36 +3,94 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Happy Birthday 💕</title>
+  <title>From My Heart 💖</title>
+
   <style>
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
+      font-family: 'Segoe UI', Arial, sans-serif;
       background: linear-gradient(135deg, #ff9a9e, #fad0c4);
       color: white;
-      text-align: center;
     }
+
     .container {
       min-height: 100vh;
       display: flex;
-      flex-direction: column;
       justify-content: center;
-      padding: 20px;
+      align-items: center;
+      padding: 40px 20px;
+      text-align: center;
     }
-    h1 { font-size: 3rem; }
-    p { font-size: 1.4rem; }
+
+    .card {
+      max-width: 900px;
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(8px);
+      border-radius: 25px;
+      padding: 50px 40px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+    }
+
+    h1 {
+      font-size: 2.8rem;
+      margin-bottom: 25px;
+    }
+
+    p {
+      font-size: 1.25rem;
+      line-height: 1.9;
+      margin-bottom: 30px;
+    }
+
+    .heart {
+      font-size: 2.5rem;
+      animation: beat 1.2s infinite;
+    }
+
+    @keyframes beat {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+    }
+
+    .signature {
+      margin-top: 35px;
+      font-size: 1.1rem;
+      opacity: 0.9;
+    }
   </style>
 </head>
+
 <body>
   <div class="container">
-    <p>I really hope you like the surprise I know 
-      its not a grand gesture but something sweet and
-      we really enjoyed your birthday along with the Kids. 
-      May god bless you with everything you Deserve 
-      so enjoy your day to the fullest . So Happiest Birthay 
-      once again Beautiful & I am luckiest to have you in my life 💖</p>
+    <div class="card">
+      <h1>💖 From My Heart 💖</h1>
+
+      <p>
+        I really hope you liked this little surprise.  
+        I know it may not be a grand gesture, but it comes straight from my heart.
+      </p>
+
+      <p>
+        We truly enjoyed celebrating your birthday along with the kids,  
+        and those moments mean more to me than words can say.
+      </p>
+
+      <p>
+        May God bless you with everything you truly deserve.  
+        Enjoy your special day to the fullest.
+      </p>
+
+      <p>
+        So once again — the happiest birthday to you, beautiful.  
+        I am incredibly lucky to have you in my life.
+      </p>
+
+      <div class="heart">❤️</div>
+
+      <div class="signature">
+        Forever grateful for you 💕
+      </div>
+    </div>
   </div>
 </body>
 </html>
-
-
