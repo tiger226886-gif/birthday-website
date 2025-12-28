@@ -16,6 +16,13 @@
       align-items: center;
       min-height: 100vh;
       padding: 20px;
+      overflow-x: hidden;
+      animation: pageFade 1.4s ease;
+    }
+
+    @keyframes pageFade {
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
 
     .card {
@@ -26,6 +33,8 @@
       padding: 50px 40px;
       box-shadow: 0 20px 40px rgba(0,0,0,0.25);
       text-align: center;
+      position: relative;
+      z-index: 2;
       animation: fadeIn 1.5s ease;
     }
 
@@ -78,10 +87,28 @@
       transform: scale(1.05);
       box-shadow: 0 10px 20px rgba(0,0,0,0.25);
     }
+
+    /* 🌸 FULL PAGE FLOATING ANIMATION */
+    .float {
+      position: fixed;
+      top: -40px;
+      pointer-events: none;
+      animation: fall linear forwards;
+      z-index: 1;
+      opacity: 0.8;
+    }
+
+    @keyframes fall {
+      to {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
   </style>
 </head>
 
 <body>
+
   <div class="card">
     <h1>🎅 From My Heart 🎅</h1>
 
@@ -114,6 +141,29 @@
     <!-- Restart Button -->
     <a href="index.html" class="restart-btn">🔄 Restart</a>
   </div>
+
+  <!-- 🌸 PAGE ANIMATION SCRIPT -->
+  <script>
+    function createFloat() {
+      const el = document.createElement("div");
+      el.className = "float";
+
+      const emojis = ["🦋", "💖", "🌸"];
+      el.innerText = emojis[Math.floor(Math.random() * emojis.length)];
+
+      el.style.left = Math.random() * 100 + "vw";
+      el.style.fontSize = (18 + Math.random() * 28) + "px";
+      el.style.animationDuration = (6 + Math.random() * 4) + "s";
+
+      document.body.appendChild(el);
+
+      setTimeout(() => {
+        el.remove();
+      }, 10000);
+    }
+
+    setInterval(createFloat, 800); // smooth & lag-free
+  </script>
+
 </body>
 </html>
-
