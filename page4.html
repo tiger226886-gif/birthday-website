@@ -3,23 +3,65 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Video 3 ✨</title>
+  <title>Another Special Moment 💕</title>
+
   <style>
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
+      font-family: 'Segoe UI', Arial, sans-serif;
       background: linear-gradient(135deg, #ffecd2, #fcb69f);
       color: #333;
       text-align: center;
+      overflow-x: hidden;
     }
-    .container { padding: 40px 20px; }
-    video {
+
+    .container {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      position: relative;
+      z-index: 1;
+      animation: fadeUp 1.2s ease;
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    h1 {
+      font-size: 2.4rem;
+      margin-bottom: 25px;
+    }
+
+    /* Video frame */
+    .video-frame {
       width: 100%;
-      max-width: 800px;
+      max-width: 900px;
+      height: 450px;
       border-radius: 20px;
+      overflow: hidden;
+      background: black;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+      animation: fadeUp 1.5s ease;
     }
+
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
     a {
-      display: inline-block;
       margin-top: 30px;
       padding: 15px 40px;
       background: #ff5e78;
@@ -27,17 +69,74 @@
       text-decoration: none;
       border-radius: 30px;
       font-weight: bold;
+      font-size: 1.1rem;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    a:hover {
+      transform: scale(1.08);
+      box-shadow: 0 12px 25px rgba(0,0,0,0.3);
+    }
+
+    /* 🧸 Rain animation */
+    .teddy {
+      position: fixed;
+      top: -50px;
+      pointer-events: none;
+      animation-name: fall;
+      animation-timing-function: linear;
+      z-index: 0;
+    }
+
+    @keyframes fall {
+      to {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0;
+      }
     }
   </style>
 </head>
+
 <body>
+
   <div class="container">
-    <h1>🎥 Video 3</h1>
-    <video controls>
-      <source src="video3.mp4" type="video/mp4">
-    </video>
-    <br>
-    <a href="page5.html">Final 💖</a>
+    <h1>🎥 Another Beautiful Memory 💖</h1>
+
+    <!-- ✅ GOOGLE DRIVE VIDEO -->
+    <div class="video-frame">
+      <iframe
+        src="https://drive.google.com/file/d/1xkEtDO5P4oS72oPm2dh3IHD4QDuPfCc1/preview?usp=embed_googleplus"
+        allow="autoplay; fullscreen">
+      </iframe>
+    </div>
+
+    <!-- Change link if your final page name is different -->
+    <a href="page5.html">Final Surprise 🎁</a>
   </div>
+
+  <!-- 🧸🌸💖 RAIN SCRIPT -->
+  <script>
+    function createTeddy() {
+      const teddy = document.createElement("div");
+      teddy.classList.add("teddy");
+
+      const emojis = ["🧸", "🌸", "🌹", "💖"];
+      teddy.innerText = emojis[Math.floor(Math.random() * emojis.length)];
+
+      teddy.style.left = Math.random() * 100 + "vw";
+      teddy.style.animationDuration = (3 + Math.random() * 3) + "s";
+      teddy.style.fontSize = (20 + Math.random() * 30) + "px";
+      teddy.style.opacity = Math.random();
+
+      document.body.appendChild(teddy);
+
+      setTimeout(() => {
+        teddy.remove();
+      }, 6000);
+    }
+
+    setInterval(createTeddy, 300);
+  </script>
+
 </body>
 </html>
