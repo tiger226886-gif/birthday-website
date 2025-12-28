@@ -1,97 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Special Video 💖</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>A Special Video 💖</title>
 
   <style>
     body {
       margin: 0;
-      font-family: 'Segoe UI', Arial, sans-serif;
-      background: linear-gradient(135deg, #a18cd1, #fbc2eb);
+      min-height: 100vh;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #b993d6, #fbc2eb);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow-x: hidden;
       color: white;
       text-align: center;
-      overflow-x: hidden;
     }
 
     .container {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      padding: 20px;
-      position: relative;
-      z-index: 1;
-      animation: fadeUp 1.2s ease;
-    }
-
-    @keyframes fadeUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      width: 90%;
+      max-width: 900px;
+      z-index: 2;
     }
 
     h1 {
-      font-size: 2.5rem;
+      font-size: 2.2rem;
       margin-bottom: 25px;
     }
 
-    /* Video container */
-    .video-frame {
-      width: 100%;
-      max-width: 900px;
-      height: 450px;
+    .video-box {
+      background: #000;
       border-radius: 20px;
       overflow: hidden;
-      background: black;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.35);
-      animation: fadeUp 1.5s ease;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.4);
     }
 
     iframe {
       width: 100%;
-      height: 100%;
+      height: 450px;
       border: none;
     }
 
-    a {
-      margin-top: 30px;
-      padding: 15px 40px;
-      background: white;
-      color: #8a4fff;
-      text-decoration: none;
-      border-radius: 30px;
+    .special-text {
+      margin: 30px 0 25px;
+      font-size: 1.4rem;
       font-weight: bold;
+      animation: glowText 2s infinite alternate;
+    }
+
+    @keyframes glowText {
+      from {
+        text-shadow: 0 0 5px #fff;
+      }
+      to {
+        text-shadow: 0 0 15px #ff5fd8, 0 0 30px #ff5fd8;
+      }
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 40px;
+      background: white;
+      color: #7b2ff7;
+      border-radius: 30px;
       font-size: 1.1rem;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      font-weight: bold;
+      text-decoration: none;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+      transition: transform 0.3s;
     }
 
-    a:hover {
-      transform: scale(1.08);
-      box-shadow: 0 12px 25px rgba(0,0,0,0.3);
+    .btn:hover {
+      transform: scale(1.05);
     }
 
-    /* 🧸 Rain Animation */
+    /* 🧸 Teddy Rain */
     .teddy {
       position: fixed;
       top: -50px;
       pointer-events: none;
       animation-name: fall;
       animation-timing-function: linear;
-      z-index: 0;
     }
 
     @keyframes fall {
       to {
-        transform: translateY(110vh) rotate(360deg);
-        opacity: 0;
+        transform: translateY(110vh);
       }
     }
   </style>
@@ -100,31 +96,32 @@
 <body>
 
   <div class="container">
-    <h1>🎥 A Special Video Just for You 💝</h1>
+    <h1>🎥 Blessing For You 😇</h1>
 
-    <!-- ✅ GOOGLE DRIVE VIDEO (YOUR LINK) -->
-    <div class="video-frame">
-      <iframe 
-        src="https://drive.google.com/file/d/1iC7AraR4C7mXZ1Q6X0CEwMsLu5hnsBdc/preview"
-        allow="autoplay; fullscreen">
+    <div class="video-box">
+      <iframe
+        src="https://drive.google.com/file/d/1xkEtDO5P4oS72oPm2dh3IHD4QDuPfCc1/preview"
+        allow="autoplay"
+        allowfullscreen>
       </iframe>
     </div>
 
-    <a href="page3.html">Next 💕</a>
+    <p class="special-text">
+      😎 Now there are some Famous Personalities who are eager to wish you on your Birthday so please press the next button 👇
+    </p>
+
+    <a href="page5.html" class="btn">Next 🎁</a>
   </div>
 
-  <!-- 🧸🌸💖 RAIN SCRIPT -->
+  <!-- 🧸 TEDDY RAIN SCRIPT -->
   <script>
     function createTeddy() {
       const teddy = document.createElement("div");
-      teddy.classList.add("teddy");
-
-      const emojis = ["🧸", "🌸", "🌹", "💖"];
-      teddy.innerText = emojis[Math.floor(Math.random() * emojis.length)];
-
+      teddy.className = "teddy";
+      teddy.innerText = Math.random() > 0.5 ? "🧸" : "💖";
       teddy.style.left = Math.random() * 100 + "vw";
-      teddy.style.animationDuration = (3 + Math.random() * 3) + "s";
       teddy.style.fontSize = (20 + Math.random() * 30) + "px";
+      teddy.style.animationDuration = (3 + Math.random() * 3) + "s";
       teddy.style.opacity = Math.random();
 
       document.body.appendChild(teddy);
