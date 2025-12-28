@@ -87,11 +87,10 @@
       box-shadow: 0 12px 25px rgba(0,0,0,0.35);
     }
 
-    /* 🧸 Teddy Rain */
+    /* 🧸 RAIN ANIMATION */
     .teddy {
       position: fixed;
       top: -50px;
-      font-size: 30px;
       pointer-events: none;
       animation-name: fall;
       animation-timing-function: linear;
@@ -119,9 +118,8 @@
 
     <!-- Message -->
     <p>
-      May life surprise you with kindness, reward your courage, and give you reasons to smile when you least expect them.
-You deserve a year as thoughtful and graceful as you are ✨. 
-I have Planned A small Surprise for you so please click on the Continue button to see The surprise✨
+      May your life be filled with love, happiness, and beautiful moments 💖  
+      May all your dreams come true ✨
     </p>
 
     <!-- Button -->
@@ -129,12 +127,15 @@ I have Planned A small Surprise for you so please click on the Continue button t
 
   </div>
 
-  <!-- 🧸 TEDDY RAIN SCRIPT -->
+  <!-- 🧸🌸💖 RAIN SCRIPT (FIXED & WORKING) -->
   <script>
     function createTeddy() {
       const teddy = document.createElement("div");
       teddy.classList.add("teddy");
-      teddy.innerText = Math.random() > 0.5 ? "🧸" : "🌸" : "🌹"; 
+
+      const emojis = ["🧸", "🌸", "🌹", "🎈"];
+      teddy.innerText = emojis[Math.floor(Math.random() * emojis.length)];
+
       teddy.style.left = Math.random() * 100 + "vw";
       teddy.style.animationDuration = (3 + Math.random() * 3) + "s";
       teddy.style.fontSize = (20 + Math.random() * 30) + "px";
@@ -152,6 +153,3 @@ I have Planned A small Surprise for you so please click on the Continue button t
 
 </body>
 </html>
-
-
-
