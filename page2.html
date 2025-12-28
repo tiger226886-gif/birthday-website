@@ -43,20 +43,12 @@
       border: none;
     }
 
-    .special-text {
-      margin: 30px 0 25px;
+    /* NORMAL TEXT (NO ANIMATION) */
+    .normal-text {
+      margin: 28px 0 25px;
       font-size: 1.4rem;
       font-weight: bold;
-      animation: glowText 2s infinite alternate;
-    }
-
-    @keyframes glowText {
-      from {
-        text-shadow: 0 0 5px #fff;
-      }
-      to {
-        text-shadow: 0 0 15px #ff5fd8, 0 0 30px #ff5fd8;
-      }
+      color: #ffffff;
     }
 
     .btn {
@@ -76,13 +68,12 @@
       transform: scale(1.05);
     }
 
-    /* 🧸 Teddy Rain */
+    /* 🧸 LIGHT TEDDY RAIN (optimized) */
     .teddy {
       position: fixed;
-      top: -50px;
+      top: -40px;
       pointer-events: none;
-      animation-name: fall;
-      animation-timing-function: linear;
+      animation: fall linear forwards;
     }
 
     @keyframes fall {
@@ -106,35 +97,34 @@
       </iframe>
     </div>
 
-    <!-- ⭐ TEXT YOU REQUESTED (PAGE 2) -->
-    <p class="special-text">
-      😎 Now there are some Famous Personalities who are eager to wish you on your Birthday so please press 👇
+    <!-- NORMAL TEXT (NO ANIMATION) -->
+    <p class="normal-text">
+      😎 Now there are some Famous Personalities who are eager to wish you on your Birthday 🎉
     </p>
 
     <a href="page3.html" class="btn">Next 🎁</a>
   </div>
 
-  <!-- 🧸 TEDDY RAIN SCRIPT -->
+  <!-- 🧸 OPTIMIZED TEDDY SCRIPT -->
   <script>
     function createTeddy() {
       const teddy = document.createElement("div");
       teddy.className = "teddy";
-      teddy.innerText = Math.random() > 0.5 ? "🧸" : "💖";
+      teddy.innerText = Math.random() > 0.5 ? "🧸" : "✨";
       teddy.style.left = Math.random() * 100 + "vw";
-      teddy.style.fontSize = (20 + Math.random() * 30) + "px";
-      teddy.style.animationDuration = (3 + Math.random() * 3) + "s";
+      teddy.style.fontSize = (18 + Math.random() * 25) + "px";
+      teddy.style.animationDuration = (5 + Math.random() * 4) + "s";
       teddy.style.opacity = Math.random();
 
       document.body.appendChild(teddy);
 
       setTimeout(() => {
         teddy.remove();
-      }, 6000);
+      }, 9000);
     }
 
-    setInterval(createTeddy, 300);
+    setInterval(createTeddy, 700); // slower = smoother
   </script>
 
 </body>
 </html>
-
