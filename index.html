@@ -22,18 +22,14 @@
       justify-content: center;
       align-items: center;
       padding: 20px;
+      position: relative;
+      z-index: 1;
     }
 
     /* Animations */
     @keyframes fadeUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     @keyframes pulse {
@@ -70,7 +66,6 @@
       opacity: 0;
     }
 
-    /* Button */
     a {
       margin-top: 30px;
       padding: 15px 40px;
@@ -91,10 +86,29 @@
       transform: scale(1.08);
       box-shadow: 0 12px 25px rgba(0,0,0,0.35);
     }
+
+    /* 🧸 Teddy Rain */
+    .teddy {
+      position: fixed;
+      top: -50px;
+      font-size: 30px;
+      pointer-events: none;
+      animation-name: fall;
+      animation-timing-function: linear;
+      z-index: 0;
+    }
+
+    @keyframes fall {
+      to {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
   </style>
 </head>
 
 <body>
+
   <div class="container">
 
     <!-- Image -->
@@ -113,5 +127,29 @@
     <a href="page2.html">Continue ❤️</a>
 
   </div>
+
+  <!-- 🧸 TEDDY RAIN SCRIPT -->
+  <script>
+    function createTeddy() {
+      const teddy = document.createElement("div");
+      teddy.classList.add("teddy");
+      teddy.innerText = Math.random() > 0.5 ? "🧸" : "💖";
+
+      teddy.style.left = Math.random() * 100 + "vw";
+      teddy.style.animationDuration = (3 + Math.random() * 3) + "s";
+      teddy.style.fontSize = (20 + Math.random() * 30) + "px";
+      teddy.style.opacity = Math.random();
+
+      document.body.appendChild(teddy);
+
+      setTimeout(() => {
+        teddy.remove();
+      }, 6000);
+    }
+
+    setInterval(createTeddy, 300);
+  </script>
+
 </body>
 </html>
+
