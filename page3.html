@@ -1,64 +1,132 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Special Video 💖</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Something Special 😌</title>
 
   <style>
     body {
       margin: 0;
+      min-height: 100vh;
       font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #fddb92, #d1fdff);
+      background: linear-gradient(135deg, #f6d365, #fda085, #a1ffce);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow-x: hidden;
+      animation: fadeIn 1.2s ease-in;
       color: #333;
       text-align: center;
     }
 
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
     .container {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      padding: 20px;
+      width: 90%;
+      max-width: 900px;
+      z-index: 2;
     }
 
-    h1 {
-      margin-bottom: 20px;
-    }
-
-    video {
-      width: 100%;
-      max-width: 800px;
+    .video-box {
+      background: #000;
       border-radius: 20px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      overflow: hidden;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.35);
     }
 
-    a {
-      margin-top: 30px;
-      padding: 15px 40px;
-      background: #ff9a9e;
-      color: white;
-      text-decoration: none;
+    iframe, video {
+      width: 100%;
+      height: 450px;
+      border: none;
+    }
+
+    /* NORMAL TEXT (NO ANIMATION) */
+    .simple-text {
+      margin: 28px 0 22px;
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: #333;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 42px;
+      background: #ff7a7a;
+      color: #fff;
       border-radius: 30px;
-      font-weight: bold;
       font-size: 1.1rem;
+      font-weight: bold;
+      text-decoration: none;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+      transition: transform 0.3s ease;
+    }
+
+    .btn:hover {
+      transform: scale(1.06);
+    }
+
+    /* 🧸 Page Animation (Teddy + Hearts) */
+    .float {
+      position: fixed;
+      top: -50px;
+      pointer-events: none;
+      animation: fall linear forwards;
+    }
+
+    @keyframes fall {
+      to {
+        transform: translateY(110vh);
+      }
     }
   </style>
 </head>
 
 <body>
+
   <div class="container">
-    <h1>🎥 So, here they are 😎</h1>
 
-    <video controls>
-      <source src="video4.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
+    <!-- VIDEO -->
+    <div class="video-box">
+      <video controls>
+        <source src="your-video-file.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
 
-    <a href="page4.html">Next 💕</a>
+    <!-- YOUR TEXT (NORMAL) -->
+    <p class="simple-text">
+      So now the Main Surprise is waiting for You 😌
+    </p>
+
+    <!-- NEXT BUTTON -->
+    <a href="page4.html" class="btn">Next 🎁</a>
+
   </div>
+
+  <!-- 🧸 PAGE ANIMATION SCRIPT -->
+  <script>
+    function createFloat() {
+      const el = document.createElement("div");
+      el.className = "float";
+      el.innerText = Math.random() > 0.5 ? "🧸" : "🎈";
+      el.style.left = Math.random() * 100 + "vw";
+      el.style.fontSize = (18 + Math.random() * 28) + "px";
+      el.style.animationDuration = (4 + Math.random() * 4) + "s";
+      el.style.opacity = Math.random();
+
+      document.body.appendChild(el);
+
+      setTimeout(() => {
+        el.remove();
+      }, 8000);
+    }
+
+    setInterval(createFloat, 450);
+  </script>
+
 </body>
 </html>
-
-
