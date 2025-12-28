@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Something Special 😌</title>
 
   <style>
@@ -16,8 +16,8 @@
       align-items: center;
       overflow-x: hidden;
       animation: fadeIn 1.2s ease-in;
-      color: #333;
       text-align: center;
+      color: #333;
     }
 
     @keyframes fadeIn {
@@ -28,7 +28,15 @@
     .container {
       width: 90%;
       max-width: 900px;
+      position: relative;
       z-index: 2;
+    }
+
+    /* TOP BOLD TEXT */
+    .top-text {
+      font-size: 1.6rem;
+      font-weight: bold;
+      margin-bottom: 18px;
     }
 
     .video-box {
@@ -38,18 +46,17 @@
       box-shadow: 0 15px 35px rgba(0,0,0,0.35);
     }
 
-    iframe, video {
+    iframe {
       width: 100%;
       height: 450px;
       border: none;
     }
 
-    /* NORMAL TEXT (NO ANIMATION) */
+    /* BELOW VIDEO TEXT (BOLD) */
     .simple-text {
       margin: 28px 0 22px;
       font-size: 1.4rem;
-      font-weight: 600;
-      color: #333;
+      font-weight: bold;
     }
 
     .btn {
@@ -69,17 +76,19 @@
       transform: scale(1.06);
     }
 
-    /* 🧸 Page Animation (Teddy + Hearts) */
+    /* 🌸🧸 FULL PAGE FLOATING ANIMATION */
     .float {
       position: fixed;
-      top: -50px;
+      top: -40px;
       pointer-events: none;
       animation: fall linear forwards;
+      z-index: 1;
     }
 
     @keyframes fall {
       to {
         transform: translateY(110vh);
+        opacity: 0;
       }
     }
   </style>
@@ -89,17 +98,23 @@
 
   <div class="container">
 
-    <!-- VIDEO -->
-    <div class="video-box">
-      <video controls>
-        <source src="your-video-file.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
+    <!-- BOLD TEXT ABOVE VIDEO -->
+    <div class="top-text">
+      So here They are 😎
     </div>
 
-    <!-- YOUR TEXT (NORMAL) -->
+    <!-- GOOGLE DRIVE VIDEO -->
+    <div class="video-box">
+      <iframe
+        src="https://drive.google.com/file/d/1BKUqjZunNXH0pMttnQjqHlgkFOjnzAmO/view?usp=drive_link"
+        allow="autoplay"
+        allowfullscreen>
+      </iframe>
+    </div>
+
+    <!-- BOLD TEXT BELOW VIDEO -->
     <p class="simple-text">
-      So now the Main Surprise is waiting for You 😌
+      So now the Main surprising is waiting for You 😌
     </p>
 
     <!-- NEXT BUTTON -->
@@ -107,25 +122,28 @@
 
   </div>
 
-  <!-- 🧸 PAGE ANIMATION SCRIPT -->
+  <!-- 🌸🧸 FULL PAGE ANIMATION SCRIPT -->
   <script>
     function createFloat() {
       const el = document.createElement("div");
       el.className = "float";
-      el.innerText = Math.random() > 0.5 ? "🧸" : "🎈";
+
+      const emojis = ["🧸", "❄", "🌸"];
+      el.innerText = emojis[Math.floor(Math.random() * emojis.length)];
+
       el.style.left = Math.random() * 100 + "vw";
       el.style.fontSize = (18 + Math.random() * 28) + "px";
-      el.style.animationDuration = (4 + Math.random() * 4) + "s";
+      el.style.animationDuration = (5 + Math.random() * 4) + "s";
       el.style.opacity = Math.random();
 
       document.body.appendChild(el);
 
       setTimeout(() => {
         el.remove();
-      }, 8000);
+      }, 9000);
     }
 
-    setInterval(createFloat, 450);
+    setInterval(createFloat, 700); // optimized for smoothness
   </script>
 
 </body>
